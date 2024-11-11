@@ -16,7 +16,6 @@ import 'nprogress/nprogress.css'
 
 import 'virtual:svg-icons-register'
 
-import SvgIcon from '@/components/SvnIcon/index.vue'
 import * as ElIcons from '@element-plus/icons-vue'
 
 const app = createApp(App)
@@ -25,7 +24,6 @@ app.use(ElementPlus)
 app.use(createPinia())
 app.use(router)
 
-app.component('SvgIcon', SvgIcon)
 for (const iconName in ElIcons) {
   app.component(`ElIcon${iconName}`, ElIcons[iconName])
 }

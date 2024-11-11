@@ -14,8 +14,6 @@ import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/display.css'
 import 'nprogress/nprogress.css'
 
-import 'virtual:svg-icons-register'
-
 import * as ElIcons from '@element-plus/icons-vue'
 
 const app = createApp(App)

@@ -18,7 +18,7 @@
     <el-descriptions title="配置信息" :column="2" border>
       <el-descriptions-item label="配置url" :span="2">
         <div>
-          {{ makeConfigUrl(appidInfo.appid) }}
+          {{ publicInfo.configUrl }}
           <el-tooltip placement="top">
             <template #content>
               <div>
@@ -32,7 +32,7 @@
           </el-tooltip>
         </div>
       </el-descriptions-item>
-      <el-descriptions-item label="公网ip">{{ publicIp }}</el-descriptions-item>
+      <el-descriptions-item label="公网ip">{{ publicInfo.ip }}</el-descriptions-item>
     </el-descriptions>
 
     <template #footer>
@@ -44,7 +44,7 @@
 <script setup>
 import { QuestionFilled } from '@element-plus/icons-vue'
 import mpConfigServerUrlPng from '@/assets/img/mp-config-server-url.png'
-import { onMounted, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import ajax from '@/utils/request'
 
 const { appidInfo } = defineProps({
@@ -55,24 +55,28 @@ const dialogVisible = defineModel('dialogVisible', { type: Boolean })
 
 const tipForUrl = '配置url是公众号的消息处理地址，用于接收微信服务器推送的消息。需要在微信公众号官方后台进行配置'
 
-const makeConfigUrl = (appid) => {
-  return `${import.meta.env.VITE_PUBLIC_URL_PREFIX}/wxmp/${appid}/handler`
-}
+const publicInfo = reactive({
+  ip: '',
+  configUrl: '',
+})
 
-const publicIp = ref('')
-
-const getPulicIp = async () => {
-  let response = await ajax.get('/api/system/common/public-ip')
+const getPublicInfo = async () => {
+  let response = await ajax.get('/api/system/appid/get_config_info', {
+    params: {
+      appid: appidInfo.appid,
+    },
+  })
   let data = response.data
   if (data.code !== 0) {
     return
   }
 
-  publicIp.value = data.data.ip
+  publicInfo.ip = data.data.ip
+  publicInfo.configUrl = data.data.configUrl
 }
 
 onMounted(() => {
-  getPulicIp()
+  getPublicInfo()
 })
 </script>
 

@@ -1,0 +1,28 @@
+[
+  {
+    "id": 2,
+    "parentId": 0,
+    "name": "DebugTest",
+    "path": "/debug-test",
+    "component": "Layout",
+    "redirect": "/debug-test/home",
+    "meta": {
+      "title": "Debug",
+      "icon": "el-icon-phone",
+      "permission": [],
+      "hidden": true
+    }
+  },
+  {
+    "id": 20,
+    "parentId": 2,
+    "name": "DebugTestHome",
+    "path": "/debug-test/home",
+    "component": "401",
+    "meta": {
+      "title": "Debug Home",
+      "icon": "el-icon-goods",
+      "permission": []
+    }
+  }
+]

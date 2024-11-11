@@ -47,7 +47,7 @@
               :crop-size-height="200"
               :crop-width-height-ratio="1.778"
               :img-url="currentArticle.pic_url"
-              :limit-size="1024"
+              :limit-size="1024 * 1024"
               v-model="currentArticle.pic_url_data"
             ></image-cropper>
           </el-form-item>
@@ -247,8 +247,6 @@ const makeImageSrc = (item, idx) => {
       }
 
       &:first-child {
-
-
         .article-title {
           width: 100%;
           position: absolute;

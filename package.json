@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --force",
+    "dev": "vite",
+    "dev:prod": "vite --mode devprod",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",

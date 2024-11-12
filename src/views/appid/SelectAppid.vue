@@ -18,7 +18,7 @@
         >
           <div class="appid-content">
             <div class="logo">
-              <el-image style="width: 100%; height: 100%" :src="logo" fit="contain"></el-image>
+              <el-image style="width: 100%; height: 100%" :src="item.thumbnail || logo" fit="contain"></el-image>
             </div>
             <div class="desc">
               <h3>{{ item.name }}</h3>
@@ -143,6 +143,7 @@ const handleConfirm = async () => {
     display: flex;
 
     align-items: center;
+    justify-content: center;
     gap: 20px;
   }
 
@@ -158,7 +159,7 @@ const handleConfirm = async () => {
     gap: 20px;
 
     .appid-item {
-      width: calc(100% / 4.3);
+      width: 300px;
       cursor: pointer;
 
       &.selected {
@@ -171,8 +172,8 @@ const handleConfirm = async () => {
         gap: 10px;
 
         .logo {
-          width: 100px;
-          height: 100px;
+          width: 80px;
+          height: 80px;
         }
       }
     }

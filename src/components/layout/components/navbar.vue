@@ -60,8 +60,6 @@ import { computed, onMounted, reactive, watch } from 'vue'
 import { useLayoutStore } from '@/stores/global'
 import { useRoute } from 'vue-router'
 
-import LayoutMenubar from '@/components/layout/components/menubar.vue'
-
 import { useAppIdInfoStore, useUserInfoStore, logout } from '@/stores/global'
 
 // 面包屑导航
@@ -91,9 +89,7 @@ const breadcrumb = (route) => {
 
 export default {
   name: 'LayoutNavbar',
-  components: {
-    LayoutMenubar,
-  },
+  components: {},
   setup() {
     const { layoutSetting, changeCollapsed } = useLayoutStore()
 

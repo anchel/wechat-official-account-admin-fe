@@ -57,7 +57,6 @@ const makeImageSrc = (src, idx) => {
       }
 
       &:first-child {
-
         .article-title {
           width: 100%;
           position: absolute;

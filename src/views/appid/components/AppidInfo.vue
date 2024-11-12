@@ -16,9 +16,17 @@
     </el-descriptions>
 
     <el-descriptions title="配置信息" :column="2" border>
-      <el-descriptions-item label="配置url" :span="2">
-        <div>
+      <el-descriptions-item label="配置地址" :span="2">
+        <div style="display: flex; align-items: center">
           {{ publicInfo.configUrl }}
+          <el-icon
+            size="20"
+            style="cursor: pointer; margin-left: 10px"
+            title="点击复制地址"
+            @click="handleClickCopyUrl"
+          >
+            <CopyDocument />
+          </el-icon>
           <el-tooltip placement="top">
             <template #content>
               <div>
@@ -26,13 +34,20 @@
                 <el-image :src="mpConfigServerUrlPng" fit="contain" alt="" style="width: 800px"></el-image>
               </div>
             </template>
-            <el-icon style="margin-left: 20px">
+            <el-icon size="20" style="margin-left: 10px">
               <question-filled />
             </el-icon>
           </el-tooltip>
         </div>
       </el-descriptions-item>
-      <el-descriptions-item label="公网ip">{{ publicInfo.ip }}</el-descriptions-item>
+      <el-descriptions-item label="公网ip">
+        <div style="display: flex; align-items: center">
+          {{ publicInfo.ip }}
+          <el-icon size="20" style="cursor: pointer; margin-left: 10px" title="点击复制ip" @click="handleClickCopyIP">
+            <CopyDocument />
+          </el-icon>
+        </div>
+      </el-descriptions-item>
     </el-descriptions>
 
     <template #footer>
@@ -42,10 +57,11 @@
 </template>
 
 <script setup>
-import { QuestionFilled } from '@element-plus/icons-vue'
+import { CopyDocument, QuestionFilled } from '@element-plus/icons-vue'
 import mpConfigServerUrlPng from '@/assets/img/mp-config-server-url.png'
-import { onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive } from 'vue'
 import ajax from '@/utils/request'
+import { copyTextToClipboard } from '@/utils/tools'
 
 const { appidInfo } = defineProps({
   appidInfo: Object,
@@ -53,7 +69,7 @@ const { appidInfo } = defineProps({
 
 const dialogVisible = defineModel('dialogVisible', { type: Boolean })
 
-const tipForUrl = '配置url是公众号的消息处理地址，用于接收微信服务器推送的消息。需要在微信公众号官方后台进行配置'
+const tipForUrl = '配置地址是公众号的消息接收地址，用于接收微信服务器推送的消息。需要在微信公众号官方后台进行配置'
 
 const publicInfo = reactive({
   ip: '',
@@ -78,6 +94,14 @@ const getPublicInfo = async () => {
 onMounted(() => {
   getPublicInfo()
 })
+
+const handleClickCopyUrl = () => {
+  copyTextToClipboard(publicInfo.configUrl)
+}
+
+const handleClickCopyIP = () => {
+  copyTextToClipboard(publicInfo.ip)
+}
 </script>
 
 <style scoped lang="less"></style>

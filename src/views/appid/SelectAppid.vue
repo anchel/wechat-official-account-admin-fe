@@ -167,7 +167,7 @@ const handleConfirm = async () => {
 
       .appid-content {
         display: flex;
-      
+
         gap: 10px;
 
         .logo {

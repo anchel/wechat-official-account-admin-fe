@@ -1,5 +1,6 @@
 import qs from 'qs'
 import ajax from './request.js'
+import { ElMessage } from 'element-plus'
 
 /**
  * 获取localStorage对象并转成对应的类型
@@ -96,4 +97,15 @@ export async function uploadImage(file, fileName) {
   }
 
   return data.data.imgUrl
+}
+
+export function copyTextToClipboard(text) {
+  navigator.clipboard.writeText(text).then(
+    () => {
+      ElMessage.success('复制成功')
+    },
+    (err) => {
+      ElMessage.error('复制失败' + err)
+    },
+  )
 }

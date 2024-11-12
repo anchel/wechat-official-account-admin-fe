@@ -10,7 +10,7 @@
         :media_type="xdo.media_type"
         :media_id="modelValue.media_id"
         :articles="modelValue.articles"
-        style="max-height: 550px"
+        :class="{ 'max-height-250': xdo.media_type !== 'news' }"
       />
 
       <div class="flex-row" style="margin-top: 20px">
@@ -147,6 +147,11 @@ const handleClear = () => {
   }
 
   .preview {
+    .max-height-250 {
+      max-height: 300px;
+      overflow: auto;
+    }
+
     .delete {
       margin-top: 10px;
       cursor: pointer;

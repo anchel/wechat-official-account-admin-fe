@@ -1,7 +1,7 @@
 html,
 body {
-    overflow: hidden;
-    margin: 0;
+  overflow: hidden;
+  margin: 0;
 }
 
 /*! @import */
@@ -10,28 +10,28 @@ body {
 @tailwind utilities;
 
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 @layer components {
-    .transition-width {
-        transition-property: width;
-    }
+  .transition-width {
+    transition-property: width;
+  }
 
-    .flex-center {
-        justify-content: center;
-        align-items: center;
-    }
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
 
-    .min-height-10 {
-        min-height: 2.5rem;
-    }
+  .min-height-10 {
+    min-height: 2.5rem;
+  }
 
-    .min-width-32 {
-        min-width: 8rem;
-    }
+  .min-width-32 {
+    min-width: 8rem;
+  }
 
-    .leading-12 {
-        line-height: 3rem;
-    }
+  .leading-12 {
+    line-height: 3rem;
+  }
 }

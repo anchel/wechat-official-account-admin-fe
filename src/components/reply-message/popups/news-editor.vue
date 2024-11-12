@@ -46,8 +46,9 @@
               :preview-height="100"
               :crop-size-height="200"
               :crop-width-height-ratio="1.778"
+              :crop-img-original-ratio="false"
               :img-url="currentArticle.pic_url"
-              :limit-size="1024 * 1024"
+              :limit-size="1024 * 512"
               v-model="currentArticle.pic_url_data"
             ></image-cropper>
           </el-form-item>

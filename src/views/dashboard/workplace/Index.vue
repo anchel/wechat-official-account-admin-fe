@@ -38,6 +38,19 @@
         </el-descriptions-item>
       </el-descriptions>
     </el-card>
+
+    <el-card v-if="qrcodeInfo.ticket">
+      <el-descriptions title="" :column="4" border>
+        <el-descriptions-item label="公众号二维码">
+          <el-image
+            :src="`https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=${encodeURIComponent(qrcodeInfo.ticket)}`"
+            fit="contain"
+            alt=""
+            style="width: 200px"
+          ></el-image>
+        </el-descriptions-item>
+      </el-descriptions>
+    </el-card>
   </div>
 </template>
 
@@ -48,6 +61,7 @@ import { QuestionFilled, CopyDocument } from '@element-plus/icons-vue'
 import ajax from '@/utils/request'
 import { copyTextToClipboard } from '@/utils/tools'
 import { useAppIdInfoStore } from '@/stores/global'
+import { ElMessage } from 'element-plus'
 
 const appidInfoStore = useAppIdInfoStore()
 
@@ -100,4 +114,40 @@ const handleClickCopyUrl = () => {
 const handleClickCopyIP = () => {
   copyTextToClipboard(publicInfo.ip)
 }
+
+const status = reactive({
+  loading: false,
+})
+
+const qrcodeInfo = reactive({
+  ticket: '',
+})
+
+const getQrcodeInfo = async () => {
+  status.loading = true
+  let response = await ajax.get('/api/qrcode/list', {
+    params: {
+      offset: 0,
+      count: 1,
+      keyword: '',
+      qrcode_type: 'limit',
+    },
+  })
+  status.loading = false
+
+  let data = response.data
+  if (data.code !== 0) {
+    ElMessage.error(data.message)
+    return
+  }
+
+  let list = data.data.list || []
+  if (list.length > 0) {
+    qrcodeInfo.ticket = list[0].ticket
+  }
+}
+
+onMounted(() => {
+  getQrcodeInfo()
+})
 </script>

@@ -1,5 +1,5 @@
 name: Release on Push Tag
-'on':
+on:
   push:
     tags:
       - v*

@@ -1,6 +1,7 @@
 name: Release on Push Tag
 
 permissions:
+  contents: write
   actions: write
 
 on:

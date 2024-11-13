@@ -25,7 +25,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: release-artifact
+          name: release.tar.gz
           path: release.tar.gz
   release:
     name: Release Production
@@ -39,7 +39,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: release-artifact
+          name: release.tar.gz
 
       - name: create_release
         id: create_release

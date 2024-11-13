@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
@@ -22,7 +23,7 @@ jobs:
 
       - run: ls -alrth
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: release-artifact
           path: release.tar.gz
@@ -30,8 +31,13 @@ jobs:
     name: Release Production
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: release-artifact
 

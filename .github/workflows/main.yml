@@ -24,9 +24,17 @@ jobs:
       - run: ls -alrth
 
       - uses: actions/upload-artifact@v4
+        id: upload-dist
         with:
           name: dist
           path: dist
+
+      - name: Output artifact ID
+        run: echo 'Artifact ID is ${{ steps.upload-dist.outputs.artifact-id }}'
+
+      - name: Wait for artifact
+        run: sleep 10
+
   release:
     name: Release Production
     runs-on: ubuntu-latest

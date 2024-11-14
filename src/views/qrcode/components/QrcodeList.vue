@@ -18,7 +18,7 @@
           </template>
         </el-input>
       </div>
-      <el-table v-loading="status.loading" :data="listData.list">
+      <el-table stripe table-layout="auto" v-loading="status.loading" :data="listData.list">
         <el-table-column prop="title" label="标题"></el-table-column>
         <el-table-column prop="title" label="场景值">
           <template #default="{ row }">

@@ -44,7 +44,13 @@
         </div>
       </div>
 
-      <el-table :data="listData.list" v-loading="status.loading" style="width: 100%; margin-top: 20px">
+      <el-table
+        :data="listData.list"
+        v-loading="status.loading"
+        stripe
+        :table-layout="'auto'"
+        style="width: 100%; margin-top: 20px"
+      >
         <el-table-column prop="rule_title" label="规则名称" />
         <el-table-column prop="keywords" label="关键词">
           <template #default="{ row }">

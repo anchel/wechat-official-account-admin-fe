@@ -2,7 +2,7 @@
   <div class="content">
     <div class="header"></div>
     <div class="list">
-      <el-table :data="listData.list" stripe v-loading="status.loading">
+      <el-table stripe table-layout="auto" :data="listData.list" v-loading="status.loading">
         <el-table-column prop="openid" label="openid" />
         <el-table-column prop="unionid" label="unionid" />
         <el-table-column prop="tagid_list" label="标签">
@@ -14,7 +14,7 @@
         </el-table-column>
         <el-table-column prop="remark" label="备注" width="120" />
         <el-table-column prop="subscribe_scene" label="关注来源" width="170" />
-        <el-table-column fixed="right" label="操作" width="140">
+        <el-table-column fixed="right" label="操作" width="150">
           <template #default="scope">
             <el-button link type="primary" size="small" @click="handleClickSetRemark(scope.$index)">
               设置备注

@@ -19,9 +19,17 @@
       </div>
 
       <el-table stripe table-layout="auto" :data="listData.list" v-loading="status.loading">
-        <el-table-column prop="time" label="时间" />
+        <el-table-column prop="time" label="时间">
+          <template #default="{ row }">
+            <span>{{ dayjs(row.time).format('YYYY-MM-DD HH:mm:ss') }}</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="status" label="返回码" />
-        <el-table-column prop="latency" label="耗时" />
+        <el-table-column prop="latency" label="耗时" align="right">
+          <template #default="{ row }">
+            <span>{{ formatTime(row.latency) }}</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="ip" label="IP" />
         <el-table-column prop="method" label="Method" />
         <el-table-column prop="path" label="路径" />
@@ -44,6 +52,7 @@
 
 <script setup>
 import { onMounted, reactive } from 'vue'
+import dayjs from 'dayjs'
 import ajax from '@/utils/request'
 import { ElMessage } from 'element-plus'
 
@@ -123,6 +132,13 @@ const getList = async () => {
 
   listData.list = data.data.list
   listData.total = data.data.total
+}
+
+function formatTime(seconds) {
+  if (seconds < 0) throw new Error('时间不能为负数')
+
+  const ms = seconds * 1000 // 转为毫秒
+  return `${ms.toFixed(2)} 毫秒`
 }
 </script>
 

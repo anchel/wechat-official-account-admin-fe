@@ -126,6 +126,21 @@ export const allowRouter = [
     ],
   },
   {
+    name: 'RequestLogRoot',
+    path: '/request-log',
+    component: Components['Layout'],
+    redirect: '/request-log/list',
+    meta: { title: '操作日志', icon: 'el-icon-document' },
+    children: [
+      {
+        name: 'RequestLog',
+        path: '/request-log/list',
+        component: Components['RequestLog'],
+        meta: { title: '操作日志', icon: 'el-icon-document' },
+      },
+    ],
+  },
+  {
     name: 'ErrorPage',
     path: '/error',
     meta: { title: '错误页面', icon: 'el-icon-eleme', hidden: true },

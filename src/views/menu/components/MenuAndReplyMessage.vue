@@ -206,7 +206,6 @@ const handleDelete = () => {
 
 <style lang="less" scoped>
 .content {
-  padding: 20px 20px 40px 20px;
   display: flex;
 
   .right-side {

@@ -4,7 +4,7 @@
       <transition name="fade-transform" mode="out-in">
         <keep-alive :include="[]">
           <refresh-loading v-if="refreshing"></refresh-loading>
-          <component v-else :is="Component" :key="key" class="page m-3 relative" />
+          <component v-else :is="Component" :key="key" class="page relative" />
         </keep-alive>
       </transition>
     </router-view>

@@ -33,7 +33,7 @@
         <el-table-column prop="ip" label="IP" />
         <el-table-column prop="method" label="Method" />
         <el-table-column prop="path" label="路径" />
-        <el-table-column prop="query" label="参数" />
+        <el-table-column prop="query" label="参数" width="250" show-overflow-tooltip />
 
         <el-table-column prop="user-agent" label="user-agent" width="150" show-overflow-tooltip />
       </el-table>
@@ -144,8 +144,18 @@ function formatTime(seconds) {
 
 <style lang="less" scoped>
 .content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+
   .header {
     margin-bottom: 20px;
+  }
+
+  .list {
+    flex: 1;
+    overflow: auto;
   }
 
   .footer {

@@ -167,6 +167,8 @@ const formatExpireSeconds = (expire_seconds) => {
 
 <style lang="less" scoped>
 .content {
+  padding: 20px;
+
   .list {
     margin-top: 20px;
 

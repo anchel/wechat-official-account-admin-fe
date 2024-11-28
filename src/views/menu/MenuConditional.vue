@@ -29,7 +29,7 @@
 import ajax from '@/utils/request'
 import { ElMessage } from 'element-plus'
 import MenuAndReplyMessageWrapper from '@/views/menu/components/MenuAndReplyMessageWrapper.vue'
-import { onMounted, reactive, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import { useGlobalStore } from '@/stores/global'
 
@@ -37,9 +37,6 @@ const { refreshPage } = useGlobalStore()
 
 const currentTab = ref('')
 const list = ref([])
-const status = reactive({
-  requested: false,
-})
 
 const handleAdd = () => {
   console.log('handleAdd')
@@ -105,4 +102,12 @@ const getList = async () => {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.content {
+  padding: 20px;
+
+  .header {
+    margin-bottom: 10px;
+  }
+}
+</style>

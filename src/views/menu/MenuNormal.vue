@@ -5,10 +5,8 @@
 </template>
 
 <script setup>
-import ajax from '@/utils/request'
-import { ElMessage } from 'element-plus'
 import MenuAndReplyMessageWrapper from '@/views/menu/components/MenuAndReplyMessageWrapper.vue'
-import { onMounted, reactive, ref } from 'vue'
+import { reactive } from 'vue'
 
 import { useGlobalStore } from '@/stores/global'
 
@@ -30,5 +28,6 @@ const handelDeleteMenu = () => {
 <style lang="less" scoped>
 .content {
   min-width: 1000px;
+  padding: 20px;
 }
 </style>

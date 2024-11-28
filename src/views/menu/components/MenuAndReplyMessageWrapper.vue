@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content-root">
     <div class="header" v-if="form.menuType === 'conditional'">
       <el-form size="small" :model="matchruleForm">
         <el-form-item label="状态">
@@ -305,7 +305,7 @@ const deleteMenu = async () => {
 </script>
 
 <style lang="less" scoped>
-.content {
+.content-root {
   min-width: 900px;
 
   .header {

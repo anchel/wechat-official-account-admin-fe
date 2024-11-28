@@ -60,4 +60,8 @@ const handleClick = (tab) => {
 }
 </script>
 
-<style scoped></style>
+<style lang="less" scoped>
+.content {
+  padding: 20px;
+}
+</style>

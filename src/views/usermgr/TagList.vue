@@ -137,6 +137,8 @@ const handleClickAdd = () => {
 
 <style lang="less" scoped>
 .content {
+  padding: 20px;
+
   .header {
     margin-bottom: 20px;
   }

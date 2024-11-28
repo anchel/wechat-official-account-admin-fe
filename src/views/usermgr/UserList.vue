@@ -43,7 +43,7 @@
 <script setup>
 import { onMounted, reactive } from 'vue'
 import ajax from '@/utils/request'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import SetUserTag from '@/views/usermgr/components/SetUserTag.vue'
 import SetUserRemark from '@/views/usermgr/components/SetUserRemark.vue'
 
@@ -144,6 +144,8 @@ const handleClickSetTag = (index) => {
 
 <style lang="less" scoped>
 .content {
+  padding: 20px;
+
   .header {
     margin-bottom: 20px;
   }

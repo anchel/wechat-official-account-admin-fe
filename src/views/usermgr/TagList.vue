@@ -1,6 +1,7 @@
 <template>
   <div class="content">
     <div class="header">
+      <el-button type="info" @click="refreshPage">刷新列表</el-button>
       <el-button type="primary" @click="handleClickAdd">新增</el-button>
     </div>
     <div class="list">

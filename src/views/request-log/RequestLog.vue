@@ -1,10 +1,11 @@
 <template>
   <div class="content">
-    <div class="header">
-      <el-button type="info" @click="refreshPage">刷新列表</el-button>
-    </div>
+    <!--    <div class="header">-->
+    <!--      <el-button type="info" @click="refreshPage">刷新列表</el-button>-->
+    <!--    </div>-->
     <div class="list">
       <div class="filter">
+        <el-button type="info" @click="refreshPage" size="default">刷新列表</el-button>
         <el-input
           clearable
           v-model="search.keyword"
@@ -18,7 +19,7 @@
         </el-input>
       </div>
 
-      <el-table stripe table-layout="auto" :data="listData.list" v-loading="status.loading">
+      <el-table stripe table-layout="auto" size="small" :data="listData.list" v-loading="status.loading">
         <el-table-column prop="time" label="时间">
           <template #default="{ row }">
             <span>{{ dayjs(row.time).format('YYYY-MM-DD HH:mm:ss') }}</span>
@@ -67,7 +68,7 @@ const search = reactive({
 
 const pagination = reactive({
   page: 1,
-  size: 10,
+  size: 20,
 })
 
 const listData = reactive({
@@ -147,7 +148,7 @@ function formatTime(seconds) {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: calc(100vh - 48px);
 
   .header {
     margin-bottom: 20px;
@@ -156,6 +157,13 @@ function formatTime(seconds) {
   .list {
     flex: 1;
     overflow: auto;
+
+    .filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
   }
 
   .footer {

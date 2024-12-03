@@ -1,6 +1,8 @@
 <template>
   <div class="content">
-    <div class="header"></div>
+    <div class="header">
+      <el-button type="info" @click="refreshPage">刷新列表</el-button>
+    </div>
     <div class="list">
       <el-table stripe table-layout="auto" :data="listData.list" v-loading="status.loading">
         <el-table-column prop="openid" label="openid" />

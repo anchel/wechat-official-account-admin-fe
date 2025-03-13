@@ -8,13 +8,8 @@
             <el-input v-model="form.username" placeholder="用户名" prefix-icon="el-icon-user" clearable></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input
-              v-model="form.password"
-              type="password"
-              placeholder="密码"
-              prefix-icon="el-icon-lock"
-              clearable
-            ></el-input>
+            <el-input v-model="form.password" type="password" placeholder="密码" prefix-icon="el-icon-lock"
+              clearable></el-input>
           </el-form-item>
           <el-form-item>
             <div class="bottom-btn">
@@ -42,8 +37,8 @@ import { useLayoutStore } from '@/stores/global'
 const loginForm = useTemplateRef('loginForm')
 
 const form = reactive({
-  username: '',
-  password: '',
+  username: 'guest',
+  password: 'guest',
 })
 
 const rules = {

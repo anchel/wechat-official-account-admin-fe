@@ -17,7 +17,7 @@ export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
-    base: '/',
+    base: env.CDN_PUBLIC_URL || '/',
     build: {
       rollupOptions: {
         input: {
